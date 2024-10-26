@@ -4,40 +4,69 @@ lab:
   exercise: Exercise 1 - Create a custom sensitive information type
 ---
 
-## Inquilinos de WWL: términos de uso
+# Tarea de aptitudes
 
-Si se le proporciona un inquilino porque está realizando un curso dirigido por un instructor, tenga en cuenta que ese inquilino está disponible únicamente como apoyo para los laboratorios prácticos del curso.
+La tarea consiste en crear y publicar etiquetas de confidencialidad dentro de la organización, que clasifica y protege los datos confidenciales según su nivel de confidencialidad y los controles de acceso necesarios.
 
-Los inquilinos no deben compartirse ni usarse para otros fines que no sean los de los laboratorios prácticos. El inquilino usado en este curso es un inquilino de prueba y no se puede usar ni tener acceso a él después de que la clase haya terminado y no sea apto para la extensión.
+**Tarea:**
 
-Los inquilinos no se deben convertir a suscripciones de pago. Los inquilinos obtenidos como parte de este curso siguen siendo propiedad de Microsoft Corporation y nos reservamos el derecho de acceso y recuperación en cualquier momento.
+- Creación de tipos de información confidencial personalizados
 
-# Tareas de aptitudes
+## Tarea: Creación de tipos de información confidencial personalizados
 
-La tarea consiste en crear un tipo de información confidencial (SIT) personalizado que cumpla los criterios necesarios:
+En esta tarea, crearás un nuevo tipo de información confidencial personalizada que reconoce el patrón de identificadores de empleado cerca de las palabras clave "Employee" y "ID".
 
-- **Patrón regex personalizado para el identificador de empleado**: Incluya un patrón regex que identifique la configuración del identificador de empleado único de la organización, que consta de 9 caracteres: 3 dígitos, un guion, seguido de 5 letras (por ejemplo, 123-abcde).
-- **Lista de palabras clave asociada a identificadores de empleado**: Incorpore una lista de palabras clave que normalmente están asociadas a identificadores de empleado para mejorar la precisión de la detección.
+1. En **Microsoft Edge**, ve a **`https://purview.microsoft.com`** e inicia sesión en el Portal de Microsoft Purview como el usuario que estableciste como **Administrador de cumplimiento** en una tarea anterior.
 
-## Tarea 1: Cree un tipo de información confidencial
+1. En la barra lateral izquierda, selecciona **Soluciones** y, después, selecciona **Information Protection**.
 
-1. Vaya al Portal de cumplimiento de Microsoft Purview.
-1. Expanda **Clasificación de datos** y seleccione **Clasificadores**.
-1. Seleccione **Tipos de información confidencial** y, después, seleccione **+ Crear tipo de información confidencial**.
-1. En la página **Nombrar el tipo de información confidencial**, asigne al tipo de información confidencial un **Nombre** y una **Descripción** significativos y, a continuación, seleccione **Siguiente**.
-1. En la página **Definir patrones para este tipo de información confidencial**, seleccione **Crear patrón**.
-1. En la página **Nuevo patrón**, seleccione **+ Agregar elemento principal** > **Expresión regular**.
-1. En la **página Agregar una expresión regular**, asigne a la expresión regular un nombre descriptivo para **Id.** y escriba `\d{3}-[a-zA-Z]{5}` en el campo **Expresión regular** para admitir el requisito de la organización. Seleccione **Listo** una vez completado.
-1. De nuevo en la página **Nuevo patrón**, en **Elementos auxiliares**, seleccione **+ Agregar elementos auxiliares o grupo de elementos** > **Lista de palabras clave**.
-1. En la página **Agregar una lista de palabras clave**, asigne un **id.** significativo a la lista de palabras clave. En **Grupo de palabras clave n.º 1**, en **No distingue mayúsculas de minúsculas**, escriba:
-   - `Employee ID`
-   - `Staff number`
-   - `Work ID`
-1. Seleccione **Listo** una vez completado.
-1. De nuevo en la página **Nuevo patrón**, seleccione **Crear**.
-1. Seleccione **Siguiente** en la página **Definir patrones para este tipo de información confidencial**.
-1. En la página **Elegir el nivel de confianza recomendado para mostrar en las directivas de cumplimiento**, deje la selección predeterminada y, a continuación, seleccione **Siguiente**.
-1. Revise la configuración y seleccione **Crear**.
-1. En la página **Se ha creado el tipo de información confidencial**, seleccione **Listo**.
+1. En la barra lateral izquierda, expande **Clasificadores** y, después, selecciona **Tipos de información confidencial**.
 
-Ahora ha creado correctamente un tipo de información confidencial (SIT) personalizado para mejorar la seguridad y la administración de los números de identificación de empleado únicos de su empresa.
+1. En la página **Tipos de información confidencial**, selecciona **+ Crear tipo de información confidencial** para iniciar la configuración del tipo de información confidencial.
+
+1. En la página **Nombre de tipo de información confidencial**, escribe:
+
+    - **Nombre**: `Contoso Employee IDs`
+    - **Descripción**: `Pattern for Contoso employee IDs.`
+
+1. Selecciona **Siguiente**.
+
+1. En la página **Definir patrones para este tipo de información confidencial**, selecciona **Crear patrón**.
+
+1. En el panel de control flotante **Nuevo patrón**, selecciona **+ Agregar elemento principal** > **Expresión regular**.
+
+1. En el panel de control flotante **+ Agregar una expresión regular** a la derecha, escribe:
+
+    - **Id.**: `Contoso IDs`
+    - **Expresión regular**: `[A-Z]{3}[0-9]{6}`
+    - Selecciona el botón de radio de *Coincidencia de cadena*
+
+1. Selecciona **Listo** en la parte inferior del panel de control flotante.
+
+1. De nuevo en el panel de control flotante **Nuevo patrón**, en **Elementos auxiliares**, selecciona el menú desplegable **+ Agregar elementos auxiliares o grupo de elementos** y selecciona **Lista de palabras clave**.
+
+1. En el panel de control flotante **Agregar una lista de palabras clave** a la derecha, escribe:
+
+    - **Id.**: `Employee ID keywords`
+    - **No distinguir entre mayúsculas y minúsculas:**
+
+       ```text
+       Employee
+       ID
+       ```
+
+    - Selección del botón de radio para *Coincidencia de palaras*
+
+1. Selecciona **Listo** en la parte inferior del panel de control flotante.
+
+1. De nuevo en el panel de control flotante **Nuevo patrón** en **Proximidad de caracteres**, reduce el valor **Detectar elementos principales Y auxiliares** a `100` caracteres.
+
+1. Selecciona el botón **Crear** en la parte inferior del panel de control flotante.
+
+1. De nuevo en la página **Definir patrones para este tipo de información confidencial**, selecciona **Siguiente**.
+
+1. En la página **Elegir el nivel de confianza recomendado para mostrar en las directivas de cumplimiento**, usa el valor predeterminado y selecciona **Siguiente**.
+
+1. En la página **Revisar configuración y finalizar**, revisa la configuración y selecciona **Crear**. Cuando se haya creado correctamente, selecciona **Listo**.
+
+Has creado correctamente un nuevo tipo de información confidencial para identificar identificadores de empleado en el patrón de tres caracteres en mayúsculas, seis números y las palabras clave "Employee" o "ID" dentro de un intervalo de 100 caracteres.
