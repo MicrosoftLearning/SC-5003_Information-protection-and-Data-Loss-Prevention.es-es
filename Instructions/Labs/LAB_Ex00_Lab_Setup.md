@@ -19,8 +19,8 @@ En este laboratorio, configurarás y prepararás el entorno para las tareas de a
 **Tareas:**
 
 - Habilitación de la auditoría en el Portal de Microsoft Purview
-- Habilitación de la búsqueda por nombre en Microsoft Teams
-- Habilitación de las barreras de información en SharePoint Online y OneDrive
+- Asignarás roles de cumplimiento
+- Explorarás el portal de cumplimiento de Microsoft Purview
 
 ## Tarea: Habilitación de la auditoría en el Portal de Microsoft Purview
 
