@@ -199,7 +199,7 @@ Ahora publicarás la etiqueta de confidencialidad Interna y de RR. HH. para que 
 1. En la página **Asignar nombre a la directiva** escribe:
 
    - **Nombre**: `Internal HR employee data`
-   - **Escribe una descripción para la directiva de etiqueta de confidencialidad**: `This HR label is to be applied to internal HR employee data.`
+   - **Escribir una descripción para la directiva de etiqueta de confidencialidad**: `This HR label is to be applied to internal HR employee data.`
 
 1. Selecciona **Siguiente**.
 
@@ -312,7 +312,7 @@ En esta tarea, crearás una directiva de etiquetado automático del lado servici
 1. En la página **Asignar nombre a la directiva** escribe:
 
    - **Nombre**: `R&D Confidential Data Container Policy`
-   - **Escriba una descripción para la directiva de etiqueta de confidencialidad**: `Automatically applies the Confidential Research Data label to content in SharePoint, Exchange, and OneDrive.`
+   - **Escribir una descripción para la directiva de etiqueta de confidencialidad**: `Automatically applies the Confidential Research Data label to content in SharePoint, Exchange, and OneDrive.`
 
 1. Selecciona **Siguiente**.
 
