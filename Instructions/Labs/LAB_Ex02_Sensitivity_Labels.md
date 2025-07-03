@@ -17,71 +17,19 @@ La tarea consiste en crear y publicar etiquetas de confidencialidad dentro de la
 
 ## Tarea 1: Habilitación de la compatibilidad con las etiquetas de confidencialidad para archivos en SharePoint y OneDrive
 
-En esta tarea, instalarás los módulos necesarios y habilitarás la compatibilidad con las etiquetas de confidencialidad en el inquilino. Esto es necesario para la tarea opcional de aplicar etiquetas de confidencialidad más adelante en este ejercicio.
+En esta tarea, habilitarás la coautoría para etiquetas de confidencialidad, que también permite etiquetas de confidencialidad para archivos en SharePoint y OneDrive.
 
-1. En el escritorio, abre una ventana de PowerShell con privilegios elevados haciendo clic con el botón derecho en el botón Windows de la barra de tareas y, después, selecciona **Terminal (Administrador)**.
+1. Abre **Microsoft Edge** y ve a `https://purview.microsoft.com`.
 
-1. Confirma la ventana **Control de cuentas de usuario** con **Sí**.
+1. En el panel de navegación izquierdo, selecciona **Configuración** > **Information Protection**.
 
-1. Ejecuta el cmdlet **Install-Module** para instalar la versión más reciente del módulo de MS Online PowerShell:
+1. En **Configuración de Information Protection**, asegúrate de que estás en la pestaña **Coautoría de archivos con etiquetas de confidencialidad**.
 
-    ```powershell
-    Install-Module -Name MSOnline
-    ```
+1. Activa la casilla **Activar la coautoría de archivos con etiquetas de confidencialidad**.
 
-1. Confirma el cuadro de diálogo seguridad de Nuget y el cuadro de diálogo seguridad de repositorio no de confianza con **Y** para Sí y presiona Entrar. Este proceso puede tardar en completarse.
+1. Selecciona **Aplicar** en la parte inferior de la pantalla.
 
-1. Ejecuta el cmdlet **Install-Module** para instalar la versión más reciente del módulo de SharePoint Online PowerShell:
-
-    ```powershell
-    Install-Module -Name Microsoft.Online.SharePoint.PowerShell
-    ```
-
-1. Confirma el cuadro de diálogo seguridad de repositorio no de confianza con **Y** para Sí y presiona Entrar.
-
-1. Ejecuta **Connect-MsolService** para conectarte al servicio MS Online:
-
-    ```powershell
-    Connect-MsolService
-    ```
-
-1. En el formulario **Iniciar sesión en tu cuenta**, inicia sesión como el usuario que seleccionaste como **Administrador de cumplimiento** en un ejercicio anterior.
-
-1. Después de iniciar sesión, vuelve a la ventana de terminal.
-
-1. Ejecuta el cmdlet **Get-Msoldomain** y guarda el dominio como una variable:
-
-    ```powershell
-    $domain = get-msoldomain
-    ```
-
-1. Usa la variable _$domain_ que creaste en el paso anterior para crear una nueva variable para _$adminurl_:
-
-    ```powershell
-    $adminurl = "https://" + $domain.Name.split('.')[0] + "-admin.sharepoint.com"
-    ```
-
-1. Ejecuta el cmdlet **Connect-SPOService** mediante la variable _$adminurl_ que creaste en el paso anterior:
-
-    ```powershell
-    Connect-SPOService -url $adminurl
-    ```
-
-1. En el formulario **Iniciar sesión en tu cuenta**, inicia sesión como **Administrador global**.
-
-1. Después de iniciar sesión, vuelve a la ventana de terminal.
-
-1. Ejecuta el cmdlet **Set-SPOTenant** para habilitar la compatibilidad con las etiquetas de confidencialidad:
-
-    ```powershell
-    Set-SPOTenant -EnableAIPIntegration $true
-    ```
-
-1. Confirma los cambios con **Y** para Sí y presiona Entrar.
-
-1. Cierra la ventana PowerShell.
-
-Has habilitado correctamente la compatibilidad con las etiquetas de confidencialidad para sitios de Teams y SharePoint.
+Has habilitado correctamente la compatibilidad con las etiquetas de confidencialidad para archivos de SharePoint y OneDrive.
 
 ## Tarea 2: Creación de etiquetas de confidencialidad.
 
