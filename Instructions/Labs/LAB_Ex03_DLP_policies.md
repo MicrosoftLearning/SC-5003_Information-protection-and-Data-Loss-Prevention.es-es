@@ -114,6 +114,14 @@ En esta tarea, usarás PowerShell para crear una directiva DLP para proteger los
 
 1. En el escritorio, abre una ventana de PowerShell con privilegios elevados haciendo clic con el botón derecho en el botón Windows de la barra de tareas y selecciona **Terminal (Administrador)**.
 
+1. Ejecuta el cmdlet **Install Module** en la ventana de terminal para instalar la versión más reciente del módulo **PowerShell de Exchange Online**:
+
+    ```powershell
+    Install-Module ExchangeOnlineManagement
+    ```
+
+1. Confirma el cuadro de diálogo de seguridad de repositorio no de confianza con **Y** para Sí y presiona **Entrar**.  Este proceso puede tardar un tiempo en finalizar.
+
 1. Ejecuta el cmdlet **Connect-IPPSSession** para conectarte a Security & Compliance PowerShell:
 
    ```powershell
